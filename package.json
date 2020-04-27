@@ -6,10 +6,10 @@
   "private": true,
   "scripts": {
     "start": "live-server --entry-file=./src/public/index.html --port=7000",
-    "deploy": "ghpages"
+    "deploy": "gh-pages -d src"
   },
   "devDependencies": {
-    "ghpages": "0.0.3",
+    "gh-pages": "^2.2.0",
     "live-server": "^1.2.0"
   },
   "keywords": [
