@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script src="src/components/PauseElementOnHover.js"></script>
+    <script src="src/components/ShowElementOnHover.js"></script>
   </head>
   <body>
     <a-scene>
@@ -73,6 +74,7 @@
       ></a-entity>
 
       <a-entity
+        id="firstTenis"
         gltf-model="#tennis"
         position="-1.5 1.45 -3"
         scale="0.01 0.01 0.01"
@@ -85,6 +87,7 @@
         position="0 1.45 -3"
         scale="0.01 0.01 0.01"
         animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
+        show-element-on-hover="element: #firstTenis"
         pause-on-hover
       ></a-entity>
 
