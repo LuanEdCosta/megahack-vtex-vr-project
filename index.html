@@ -22,6 +22,11 @@
         />
 
         <img id="texture" src="src/assets/images/image.jpg" />
+
+        <a-asset-item
+          id="tree"
+          src="src/assets/objects/Tennis.gltf"
+        ></a-asset-item>
       </a-assets>
 
       <a-entity hand-controls="hand: left"></a-entity>
@@ -46,19 +51,7 @@
 
       <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle>
 
-      <a-box
-        position="0 0.6 -3"
-        rotation="0 0 0"
-        width="5"
-        color="#4CC3D9"
-      ></a-box>
-
-      <a-box
-        position="3.5 0.6 -3"
-        rotation="0 0 0"
-        height="5"
-        color="#dcdcdc"
-      ></a-box>
+      <a-box position="0 0.5 -3" width="5" color="#4CC3D9"></a-box>
 
       <a-box
         src="#texture"
@@ -83,9 +76,16 @@
         width="1"
         animation="property: object3D.position.y; to: 2; dir: alternate; dur: 2000; loop: true"
       ></a-box>
+
+      <!-- <a-entity
+        gltf-model="#tree"
+        position="0 1 0"
+        height="0.01"
+        width="0.01"
+      ></a-entity> -->
     </a-scene>
 
     <script src="src/helpers/CreateElement.js"></script>
-    <!-- <script src="src/components/File.js"></script> -->
+    <script src="src/builders/BoxBuilder.js"></script>
   </body>
 </html>
