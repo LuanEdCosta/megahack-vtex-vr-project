@@ -4,7 +4,11 @@
     <meta charset="utf-8" />
     <title>Vtex Online Store</title>
     <meta name="description" content="Vtex Online Store" />
+
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="src/components/PauseElementOnHover.js"></script>
   </head>
   <body>
     <a-scene>
@@ -21,11 +25,21 @@
           crossorigin="anonymous"
         />
 
-        <img id="texture" src="src/assets/images/image.jpg" />
+        <img
+          id="texture"
+          src="src/assets/images/image.jpg"
+          height="3"
+          width="3"
+        />
 
         <a-asset-item
-          id="tree"
+          id="tennis"
           src="src/assets/objects/Tennis.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="table"
+          src="src/assets/objects/Table.gltf"
         ></a-asset-item>
       </a-assets>
 
@@ -36,9 +50,9 @@
         camera
         look-controls
         wasd-controls="acceleration:200"
-        position="0 1.6 0"
+        position="0 2 0"
       >
-        <a-cursor color="white"></a-cursor>
+        <a-cursor color="red"></a-cursor>
       </a-entity>
 
       <a-sky
@@ -51,41 +65,38 @@
 
       <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle>
 
-      <a-box position="0 0.5 -3" width="5" color="#4CC3D9"></a-box>
+      <a-entity
+        gltf-model="#table"
+        position="-2 0 -2"
+        rotation="-90 0 0"
+        scale="0.05 0.05 0.05"
+      ></a-entity>
 
-      <a-box
-        src="#texture"
-        position="-1.5 1.8 -3"
-        rotation="0 0 0"
-        width="1"
-        animation="property: object3D.position.y; to: 2; dir: alternate; dur: 2000; loop: true"
-      ></a-box>
+      <a-entity
+        gltf-model="#tennis"
+        position="-1.5 1.45 -3"
+        scale="0.01 0.01 0.01"
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
+        pause-on-hover
+      ></a-entity>
 
-      <a-box
-        src="#texture"
-        position="0 1.8 -3"
-        rotation="0 5 0"
-        width="1"
-        animation="property: object3D.position.y; to: 2; dir: alternate; dur: 2000; loop: true"
-      ></a-box>
+      <a-entity
+        gltf-model="#tennis"
+        position="0 1.45 -3"
+        scale="0.01 0.01 0.01"
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
+        pause-on-hover
+      ></a-entity>
 
-      <a-box
-        src="#texture"
-        position="1.5 1.8 -3"
-        rotation="0 5 0"
-        width="1"
-        animation="property: object3D.position.y; to: 2; dir: alternate; dur: 2000; loop: true"
-      ></a-box>
-
-      <!-- <a-entity
-        gltf-model="#tree"
-        position="0 1 0"
-        height="0.01"
-        width="0.01"
-      ></a-entity> -->
+      <a-entity
+        gltf-model="#tennis"
+        position="1.5 1.45 -3"
+        scale="0.01 0.01 0.01"
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
+        pause-on-hover
+      ></a-entity>
     </a-scene>
 
     <script src="src/helpers/CreateElement.js"></script>
-    <script src="src/builders/BoxBuilder.js"></script>
   </body>
 </html>
