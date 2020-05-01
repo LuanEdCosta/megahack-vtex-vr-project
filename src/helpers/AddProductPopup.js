@@ -1,5 +1,6 @@
 function addProductPopup(options, productContainer) {
   if (options && productContainer) {
+    var productId = options.id
     var productName = options.name
     var productDescription = options.description
     var productPrice = options.price
@@ -41,7 +42,10 @@ function addProductPopup(options, productContainer) {
       width: '2',
       height: '0.5',
       color: '#7300e6',
-      rotation: '0 0 0'
+      rotation: '0 0 0',
+      'add-to-chart-on-click': {
+        productId: productId
+      }
     })
 
     addChildElement(addTopChartPlane, 'a-text', {

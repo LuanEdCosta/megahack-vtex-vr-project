@@ -4,7 +4,7 @@ function addProductToChart(product) {
 
   var productFound = false
   chartProducts.forEach((prod) => {
-    if (prod.id === product.id) {
+    if (prod && prod.id === product.id) {
       productFound = true
     }
   })

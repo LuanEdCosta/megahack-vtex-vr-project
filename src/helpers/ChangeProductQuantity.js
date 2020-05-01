@@ -8,7 +8,7 @@ function changeProductQuantity(product, actionType) {
   var productFoundIndex = -1
 
   chartProducts.forEach((prod, index) => {
-    if (prod.id === product.id) {
+    if (prod && prod.id === product.id) {
       productClone = Object.assign({}, prod)
       productFoundIndex = index
     }

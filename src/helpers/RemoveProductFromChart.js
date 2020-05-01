@@ -4,7 +4,7 @@ function removeProductFromChart(product) {
 
   var productFoundIndex = -1
   chartProducts.forEach((prod, index) => {
-    if (prod.id === product.id) {
+    if (prod && prod.id === product.id) {
       productFoundIndex = index
     }
   })

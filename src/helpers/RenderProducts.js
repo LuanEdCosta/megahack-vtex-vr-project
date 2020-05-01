@@ -10,6 +10,7 @@ function renderProducts(productsObject) {
 
       addProductPopup(
         {
+          id: prodId,
           name: product.name,
           description: product.description,
           price: product.price,
