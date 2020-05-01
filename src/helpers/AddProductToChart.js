@@ -10,7 +10,9 @@ function addProductToChart(product) {
   })
 
   if (productFound) return false
+
   chartProducts.push(product)
   localStorage.setItem('CHART', JSON.stringify(chartProducts))
+
   return true
 }

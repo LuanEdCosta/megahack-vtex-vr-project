@@ -12,6 +12,7 @@
     <script src="src/components/ShowElementOnHover.js"></script>
     <script src="src/components/SpeechRecognition.js"></script>
     <script src="src/components/AddToChartOnClick.js"></script>
+    <script src="src/components/FetchProducts.js"></script>
   </head>
   <body>
     <a-scene>
@@ -28,37 +29,30 @@
           crossorigin="anonymous"
         />
 
-        <img
-          id="texture"
-          src="src/assets/images/image.jpg"
-          height="3"
-          width="3"
-        />
-
         <a-asset-item
           id="tennis"
           src="src/assets/objects/Tennis.gltf"
         ></a-asset-item>
 
         <a-asset-item
-          id="table"
-          src="src/assets/objects/Table.gltf"
+          id="store"
+          src="src/assets/objects/Store.gltf"
         ></a-asset-item>
       </a-assets>
 
       <a-entity speech-recognition></a-entity>
+      <a-entity fetch-products></a-entity>
       <a-entity hand-controls="hand: left"></a-entity>
       <a-entity hand-controls="hand: right"></a-entity>
 
       <a-entity
         id="camera"
         camera
-        look-controls
+        look-controls="pointerLockEnabled: true"
         wasd-controls="acceleration:200"
-        position="0 2 0"
+        position="0 2 4"
       >
         <a-cursor color="red"></a-cursor>
-        <a-plane width="5" color="white" height="1"></a-plane>
       </a-entity>
 
       <a-sky
@@ -72,138 +66,23 @@
       <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle>
 
       <a-entity
-        gltf-model="#table"
-        position="-2 0 -2"
-        rotation="-90 0 0"
-        scale="0.05 0.05 0.05"
-      ></a-entity>
-
-      <a-plane
-        id="tenis1Info"
-        position="-1.5 3 -3"
-        width="2"
-        height="2"
-        color="white"
-        rotation="0 0 0"
-      >
-        <a-text
-          color="#7300e6"
-          position="-0.84 0.76 0.01"
-          width="3"
-          value="Nike Paul Rodrigues 7"
-        ></a-text>
-
-        <a-text
-          color="#555555"
-          position="-0.84 0.32 0.01"
-          width="1.5"
-          value="Texto maravilhoso que eu fiz para quebrar quando chegar a um limite de caracteres"
-          wrap-count="25"
-        ></a-text>
-
-        <a-text
-          color="#00b300"
-          position="-0.84 -0.25 0.01"
-          width="3"
-          value="R$ 50,00"
-          wrap-count="18"
-        ></a-text>
-
-        <a-plane
-          position="0 -0.76 0.01"
-          width="2"
-          height="0.5"
-          color="#7300e6"
-          rotation="0 0 0"
-        >
-          <a-text
-            color="white"
-            position="-0.65 0 0"
-            width="3"
-            value="Adicionar ao Carrinho"
-          ></a-text>
-        </a-plane>
-      </a-plane>
-
-      <a-entity
-        gltf-model="#tennis"
-        position="-1.5 1.45 -3"
+        gltf-model="#store"
+        position="0 0 -3"
         scale="0.01 0.01 0.01"
-        animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
-        pause-on-hover
-        show-element-on-hover="element: #tenis1Info"
-      ></a-entity>
-
-      <a-plane
-        id="tenis2Info"
-        position="0 3 -3"
-        width="2"
-        height="2"
-        color="white"
-        rotation="0 0 0"
-      >
-        <a-text
-          color="#7300e6"
-          position="-0.84 0.76 0.01"
-          width="3"
-          value="Nike Paul Rodrigues 7"
-        ></a-text>
-
-        <a-text
-          color="#555555"
-          position="-0.84 0.32 0.01"
-          width="1.5"
-          value="Texto maravilhoso que eu fiz para quebrar quando chegar a um limite de caracteres"
-          wrap-count="25"
-        ></a-text>
-
-        <a-text
-          color="#00b300"
-          position="-0.84 -0.25 0.01"
-          width="3"
-          value="R$ 50,00"
-          wrap-count="18"
-        ></a-text>
-
-        <a-plane
-          position="0 -0.76 0.01"
-          width="2"
-          height="0.5"
-          color="#7300e6"
-          rotation="0 0 0"
-          add-to-chart-on-click
-        >
-          <a-text
-            color="white"
-            position="-0.65 0 0"
-            width="3"
-            value="Adicionar ao Carrinho"
-          ></a-text>
-        </a-plane>
-      </a-plane>
-
-      <a-entity
-        gltf-model="#tennis"
-        position="0 1.45 -3"
-        scale="0.01 0.01 0.01"
-        animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
-        show-element-on-hover="element: #tenis2Info"
-        pause-on-hover
-      ></a-entity>
-
-      <a-entity
-        gltf-model="#tennis"
-        position="1.5 1.45 -3"
-        scale="0.01 0.01 0.01"
-        animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
-        pause-on-hover
       ></a-entity>
     </a-scene>
 
-    <script src="src/helpers/CreateElement.js"></script>
+    <script src="src/helpers/IsObject.js"></script>
+    <script src="src/helpers/AddElementAttrs.js"></script>
+    <script src="src/helpers/AddElement.js"></script>
+    <script src="src/helpers/AddChildElement.js"></script>
     <script src="src/helpers/ShowElement.js"></script>
     <script src="src/helpers/CloneRotation.js"></script>
     <script src="src/helpers/CommandRunner.js"></script>
     <script src="src/helpers/AddProductToChart.js"></script>
+    <script src="src/helpers/ChangeProductQuantity.js"></script>
+    <script src="src/helpers/RemoveProductFromChart.js"></script>
+    <script src="src/helpers/RenderProducts.js"></script>
+    <script src="src/helpers/AddProductPopup.js"></script>
   </body>
 </html>
