@@ -4,7 +4,7 @@ function onRunCommand(command) {
 
   var selectedProduct = ''
   var productsArray = ['1', '2']
-  productsArray.forEach((productNumber) => {
+  productsArray.forEach(function (productNumber) {
     if (command.includes(productNumber)) {
       selectedProduct = productNumber
     }
