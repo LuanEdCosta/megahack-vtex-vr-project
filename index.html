@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>Vtex Online Store</title>
     <meta name="description" content="Vtex Online Store" />
 
@@ -9,6 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script src="src/components/PauseElementOnHover.js"></script>
+    <script src="src/components/ShowElementOnHover.js"></script>
+    <script src="src/components/SpeechRecognition.js"></script>
+    <script src="src/components/AddToChartOnClick.js"></script>
   </head>
   <body>
     <a-scene>
@@ -43,16 +46,19 @@
         ></a-asset-item>
       </a-assets>
 
+      <a-entity speech-recognition></a-entity>
       <a-entity hand-controls="hand: left"></a-entity>
       <a-entity hand-controls="hand: right"></a-entity>
 
       <a-entity
+        id="camera"
         camera
         look-controls
         wasd-controls="acceleration:200"
         position="0 2 0"
       >
         <a-cursor color="red"></a-cursor>
+        <a-plane width="5" color="white" height="1"></a-plane>
       </a-entity>
 
       <a-sky
@@ -72,19 +78,116 @@
         scale="0.05 0.05 0.05"
       ></a-entity>
 
+      <a-plane
+        id="tenis1Info"
+        position="-1.5 3 -3"
+        width="2"
+        height="2"
+        color="white"
+        rotation="0 0 0"
+      >
+        <a-text
+          color="#7300e6"
+          position="-0.84 0.76 0.01"
+          width="3"
+          value="Nike Paul Rodrigues 7"
+        ></a-text>
+
+        <a-text
+          color="#555555"
+          position="-0.84 0.32 0.01"
+          width="1.5"
+          value="Texto maravilhoso que eu fiz para quebrar quando chegar a um limite de caracteres"
+          wrap-count="25"
+        ></a-text>
+
+        <a-text
+          color="#00b300"
+          position="-0.84 -0.25 0.01"
+          width="3"
+          value="R$ 50,00"
+          wrap-count="18"
+        ></a-text>
+
+        <a-plane
+          position="0 -0.76 0.01"
+          width="2"
+          height="0.5"
+          color="#7300e6"
+          rotation="0 0 0"
+        >
+          <a-text
+            color="white"
+            position="-0.65 0 0"
+            width="3"
+            value="Adicionar ao Carrinho"
+          ></a-text>
+        </a-plane>
+      </a-plane>
+
       <a-entity
         gltf-model="#tennis"
         position="-1.5 1.45 -3"
         scale="0.01 0.01 0.01"
         animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
         pause-on-hover
+        show-element-on-hover="element: #tenis1Info"
       ></a-entity>
+
+      <a-plane
+        id="tenis2Info"
+        position="0 3 -3"
+        width="2"
+        height="2"
+        color="white"
+        rotation="0 0 0"
+      >
+        <a-text
+          color="#7300e6"
+          position="-0.84 0.76 0.01"
+          width="3"
+          value="Nike Paul Rodrigues 7"
+        ></a-text>
+
+        <a-text
+          color="#555555"
+          position="-0.84 0.32 0.01"
+          width="1.5"
+          value="Texto maravilhoso que eu fiz para quebrar quando chegar a um limite de caracteres"
+          wrap-count="25"
+        ></a-text>
+
+        <a-text
+          color="#00b300"
+          position="-0.84 -0.25 0.01"
+          width="3"
+          value="R$ 50,00"
+          wrap-count="18"
+        ></a-text>
+
+        <a-plane
+          position="0 -0.76 0.01"
+          width="2"
+          height="0.5"
+          color="#7300e6"
+          rotation="0 0 0"
+          add-to-chart-on-click
+        >
+          <a-text
+            color="white"
+            position="-0.65 0 0"
+            width="3"
+            value="Adicionar ao Carrinho"
+          ></a-text>
+        </a-plane>
+      </a-plane>
 
       <a-entity
         gltf-model="#tennis"
         position="0 1.45 -3"
         scale="0.01 0.01 0.01"
         animation="property: rotation; to: 0 360 0; dir: alternate; dur: 5000; loop: true; easing: linear"
+        show-element-on-hover="element: #tenis2Info"
         pause-on-hover
       ></a-entity>
 
@@ -98,5 +201,9 @@
     </a-scene>
 
     <script src="src/helpers/CreateElement.js"></script>
+    <script src="src/helpers/ShowElement.js"></script>
+    <script src="src/helpers/CloneRotation.js"></script>
+    <script src="src/helpers/CommandRunner.js"></script>
+    <script src="src/helpers/AddProductToChart.js"></script>
   </body>
 </html>
