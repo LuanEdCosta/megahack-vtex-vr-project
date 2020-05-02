@@ -61,9 +61,9 @@ AFRAME.registerComponent('inventory', {
         var inventorySlotContent = addChildElement(inventorySlot, 'a-entity')
 
         addChildElement(inventorySlotContent, 'a-entity', {
-          scale: '0.0006 0.0006 0.0006',
-          rotation: '0 90 0',
-          position: '0.007 0 0.02',
+          scale: '0.025 0.025 0.025',
+          rotation: '0 180 0',
+          position: '0.007 0.01 0.02',
           'gltf-model': product['gltf-model']
         })
 

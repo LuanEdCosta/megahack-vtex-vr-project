@@ -8,7 +8,7 @@ AFRAME.registerComponent('fetch-products', {
         price: 500,
         'gltf-model': '#tennis',
         position: '-1.5 1.45 -3',
-        scale: '0.01 0.01 0.01',
+        scale: '0.4 0.4 0.4',
         animation: {
           property: 'rotation',
           to: '0 360 0',
@@ -25,7 +25,7 @@ AFRAME.registerComponent('fetch-products', {
         price: 500,
         'gltf-model': '#tennis',
         position: '0 1.45 -3',
-        scale: '0.01 0.01 0.01',
+        scale: '0.4 0.4 0.4',
         animation: {
           property: 'rotation',
           to: '0 360 0',
@@ -42,7 +42,7 @@ AFRAME.registerComponent('fetch-products', {
         price: 500,
         'gltf-model': '#tennis',
         position: '1.5 1.45 -3',
-        scale: '0.01 0.01 0.01',
+        scale: '0.4 0.4 0.4',
         animation: {
           property: 'rotation',
           to: '0 360 0',

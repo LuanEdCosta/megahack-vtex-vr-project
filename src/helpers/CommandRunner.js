@@ -1,29 +1,38 @@
 function onRunCommand(command) {
-  var willShowProduct = command.includes('mostrar produto')
-  var willAddToChart = command.includes('comprar produto')
+  var productId = identifyProductFromComand(command)
+  var action = identifyActionFromCommand(command)
 
-  var products = localStorage.getItem('PRODUCTS')
-  products = products ? JSON.parse(products) : {}
-
-  var productsIdArray = Object.keys(products)
-  var productId = ''
-
-  productsIdArray.forEach(function (id, index) {
-    if (command.includes('' + (index + 1))) {
-      productId = id
+  if (action && productId) {
+    if (action === 'SHOW_PRODUCT_DETAILS') {
+      var product = document.querySelector('#' + productId + ' a-plane')
+      var camera = document.querySelector('#camera')
+      showElement(product, true)
+      cloneRotation(product, camera)
     }
-  })
 
-  // Show product info
-  if (willShowProduct && productId) {
-    var product = document.querySelector('#' + productId + ' a-plane')
-    var camera = document.querySelector('#camera')
-    showElement(product, true)
-    cloneRotation(product, camera)
-  }
+    if (action === 'ADD_TO_CHART') {
+      var productButtonSelector = '#' + productId + ' [add-to-chart-on-click]'
+      var addToChartButton = document.querySelector(productButtonSelector)
+      addToChartButton.click()
+    }
 
-  // Add product to chart
-  if (willAddToChart && productId) {
-    console.log(command)
+    if (action === 'REMOVE_FROM_CHART') {
+      var chart = localStorage.getItem('CHART')
+      chart = chart ? JSON.parse(chart) : []
+      var indexToRemove = -1
+
+      chart.forEach(function (product, index) {
+        if (product && product.id === productId) {
+          indexToRemove = index
+        }
+      })
+
+      if (indexToRemove !== -1) {
+        removeProductFromChart(indexToRemove)
+        document
+          .querySelector('#inventory')
+          .components.inventory.updateInventory()
+      }
+    }
   }
 }
