@@ -13,6 +13,7 @@
     <script src="src/components/ShowElementOnHover.js"></script>
     <script src="src/components/SpeechRecognition.js"></script>
     <script src="src/components/AddToChartOnClick.js"></script>
+    <script src="src/components/Inventory.js"></script>
   </head>
   <body>
     <a-scene>
@@ -47,12 +48,23 @@
 
       <a-entity
         id="camera"
-        camera
         look-controls="pointerLockEnabled: true"
         wasd-controls="acceleration:200"
         position="0 2 4"
+        camera
       >
-        <a-cursor color="red"></a-cursor>
+        <a-cursor color="red">
+          <a-plane
+            id="inventory"
+            color="black"
+            width="auto"
+            height="0.1"
+            position="0 -0.75 0"
+            transparent="true"
+            opacity="0.3"
+            inventory
+          ></a-plane>
+        </a-cursor>
       </a-entity>
 
       <a-sky
@@ -67,7 +79,7 @@
 
       <a-entity
         gltf-model="#store"
-        position="0 0 -3"
+        position="0 0.2 -3"
         scale="0.01 0.01 0.01"
       ></a-entity>
     </a-scene>

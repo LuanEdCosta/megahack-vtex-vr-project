@@ -8,7 +8,13 @@ AFRAME.registerComponent('add-to-chart-on-click', {
     products = products ? JSON.parse(products) : null
 
     this.el.addEventListener('click', function (e) {
-      if (products && productId) addProductToChart(products[productId])
+      if (products && productId) {
+        addProductToChart(products[productId])
+
+        document
+          .querySelector('#inventory')
+          .components.inventory.updateInventory()
+      }
     })
   }
 })

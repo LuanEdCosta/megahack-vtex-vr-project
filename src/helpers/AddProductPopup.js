@@ -16,14 +16,14 @@ function addProductPopup(options, productContainer) {
 
     addChildElement(productPlane, 'a-text', {
       color: '#7300e6',
-      position: '-0.84 0.76 0.01',
+      position: '-0.84 0.76 0.02',
       width: '3',
       value: productName
     })
 
     addChildElement(productPlane, 'a-text', {
       color: '#555555',
-      position: '-0.84 0.32 0.01',
+      position: '-0.84 0.32 0.02',
       width: '1.5',
       value: productDescription,
       'wrap-count': '25'
@@ -31,14 +31,14 @@ function addProductPopup(options, productContainer) {
 
     addChildElement(productPlane, 'a-text', {
       color: '#00b300',
-      position: '-0.84 -0.25 0.01',
+      position: '-0.84 -0.25 0.02',
       width: '3',
       value: 'R$ ' + productPrice,
       'wrap-count': '18'
     })
 
     var addTopChartPlane = addChildElement(productPlane, 'a-plane', {
-      position: '0 -0.76 0.01',
+      position: '0 -0.76 0.02',
       width: '2',
       height: '0.5',
       color: '#7300e6',
@@ -50,7 +50,7 @@ function addProductPopup(options, productContainer) {
 
     addChildElement(addTopChartPlane, 'a-text', {
       color: 'white',
-      position: '-0.65 0 0',
+      position: '-0.65 0 0.02',
       width: '3',
       value: addToChartButtonText
     })
