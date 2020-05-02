@@ -12,7 +12,12 @@ AFRAME.registerComponent('add-to-chart-on-click', {
         '#' + productId + ' a-plane'
       )
 
-      if (products && productId && productInfoElement.object3D.visible) {
+      var isOriginatedFromATrueClick = e instanceof CustomEvent
+
+      var isAClickInAHiddenElement =
+        isOriginatedFromATrueClick && !productInfoElement.object3D.visible
+
+      if (products && productId && !isAClickInAHiddenElement) {
         var newProduct = products[productId]
         newProduct.quantity = 1
 
