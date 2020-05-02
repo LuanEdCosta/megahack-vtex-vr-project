@@ -1,5 +1,4 @@
 AFRAME.registerComponent('inventory', {
-  schema: {},
   init: function () {
     var componentReference = this
 
