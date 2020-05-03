@@ -93,6 +93,8 @@ AFRAME.registerComponent('inventory', {
     })
   },
   selectSlot(slotIndex) {
+    if (!this.isInventoryVisible()) return
+
     if ((slotIndex && slotIndex !== -1) || slotIndex === 0) {
       this.selectedSlot = slotIndex
       var inventorySlots = document.querySelectorAll('#inventory a-plane')
@@ -106,6 +108,8 @@ AFRAME.registerComponent('inventory', {
     }
   },
   changeQuantity: function (isToIncrement) {
+    if (!this.isInventoryVisible()) return
+
     var inventorySlots = document.querySelectorAll('#inventory a-plane')
     var chart = localStorage.getItem('CHART')
     chart = chart ? JSON.parse(chart) : []
@@ -133,5 +137,8 @@ AFRAME.registerComponent('inventory', {
     }
 
     localStorage.setItem('CHART', JSON.stringify(chart))
+  },
+  isInventoryVisible: function () {
+    return this.el.object3D.visible
   }
 })
