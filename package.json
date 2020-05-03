@@ -5,11 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "live-server --port=7000",
-    "deploy": "gh-pages -d src"
+    "start": "live-server --port=7000"
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0",
     "live-server": "^1.2.0"
   },
   "keywords": [

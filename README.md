@@ -1,6 +1,7 @@
 # :heart: Megahack VTEX VR Project
 
 Project created with A-Frame that simulates a store in a virtual 3D world.
+You can see it running in your own browser: [Click Here](https://hackthon-vr-ecommerce.web.app/)
 
 ## :point_right: Steps to Run
 
