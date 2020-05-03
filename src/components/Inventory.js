@@ -67,7 +67,7 @@ AFRAME.registerComponent('inventory', {
           scale: '0.025 0.025 0.025',
           rotation: '0 180 0',
           position: '0.007 0.01 0.02',
-          'gltf-model': product['gltf-model']
+          'gltf-model': '#tennisThumb'
         })
 
         var quantityContainer = addChildElement(
