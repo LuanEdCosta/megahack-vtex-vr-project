@@ -93,7 +93,7 @@ AFRAME.registerComponent('inventory', {
     })
   },
   selectSlot(slotIndex) {
-    if (slotIndex || slotIndex === 0) {
+    if ((slotIndex && slotIndex !== -1) || slotIndex === 0) {
       this.selectedSlot = slotIndex
       var inventorySlots = document.querySelectorAll('#inventory a-plane')
 
