@@ -9,7 +9,8 @@ AFRAME.registerComponent('inventory', {
         opacity: '0.6',
         position: [-0.44 + i * 0.0977, 0.015, 0.02],
         width: '0.08',
-        height: '0.08'
+        height: '0.08',
+        shader: 'flat'
       })
     }
 
@@ -61,13 +62,16 @@ AFRAME.registerComponent('inventory', {
       }
 
       if (product) {
-        var inventorySlotContent = addChildElement(inventorySlot, 'a-entity')
+        var inventorySlotContent = addChildElement(inventorySlot, 'a-entity', {
+          shader: 'flat'
+        })
 
         addChildElement(inventorySlotContent, 'a-entity', {
           scale: '0.025 0.025 0.025',
           rotation: '0 180 0',
           position: '0.007 0.01 0.02',
-          'gltf-model': '#tennisThumb'
+          'gltf-model': '#tennisThumb',
+          shader: 'flat'
         })
 
         var quantityContainer = addChildElement(
@@ -78,7 +82,8 @@ AFRAME.registerComponent('inventory', {
             height: '0.001',
             scale: '0.015 0.015 0.015',
             position: '0.007 0.06 0.02',
-            color: 'white'
+            color: 'white',
+            shader: 'flat'
           }
         )
 
@@ -87,6 +92,7 @@ AFRAME.registerComponent('inventory', {
           color: '#7300e6',
           width: '6',
           'wrap-count': '10',
+          shader: 'flat',
           position: product.quantity > 9 ? '-0.65 0 0' : '-0.4 0 0'
         })
       }

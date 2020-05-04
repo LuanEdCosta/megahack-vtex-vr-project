@@ -11,14 +11,16 @@ function addProductPopup(options, productContainer) {
       width: '2',
       height: '2',
       color: 'white',
-      rotation: '0 0 0'
+      rotation: '0 0 0',
+      shader: 'flat'
     })
 
     addChildElement(productPlane, 'a-text', {
       color: '#7300e6',
       position: '-0.84 0.76 0.02',
       width: '3',
-      value: productName
+      value: productName,
+      shader: 'flat'
     })
 
     addChildElement(productPlane, 'a-text', {
@@ -26,7 +28,8 @@ function addProductPopup(options, productContainer) {
       position: '-0.84 0.32 0.02',
       width: '1.5',
       value: productDescription,
-      'wrap-count': '25'
+      'wrap-count': '25',
+      shader: 'flat'
     })
 
     addChildElement(productPlane, 'a-text', {
@@ -34,7 +37,8 @@ function addProductPopup(options, productContainer) {
       position: '-0.84 -0.25 0.02',
       width: '3',
       value: 'R$ ' + productPrice,
-      'wrap-count': '18'
+      'wrap-count': '18',
+      shader: 'flat'
     })
 
     var addTopChartPlane = addChildElement(productPlane, 'a-plane', {
@@ -43,6 +47,7 @@ function addProductPopup(options, productContainer) {
       height: '0.5',
       color: '#7300e6',
       rotation: '0 0 0',
+      shader: 'flat',
       'add-to-chart-on-click': {
         productId: productId
       }
@@ -52,7 +57,8 @@ function addProductPopup(options, productContainer) {
       color: 'white',
       position: '-0.65 0 0.02',
       width: '3',
-      value: addToChartButtonText
+      value: addToChartButtonText,
+      shader: 'flat'
     })
 
     return productPlane
