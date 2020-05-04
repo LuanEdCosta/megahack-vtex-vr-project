@@ -7,7 +7,8 @@ AFRAME.registerComponent('checkout', {
       color: 'white',
       position: '0 0 0.02',
       width: '2',
-      height: '1.05'
+      height: '1.05',
+      shader: 'flat'
     })
 
     checkoutContainer.object3D.visible = false
@@ -43,12 +44,15 @@ AFRAME.registerComponent('checkout', {
 
     chart.forEach(function (product, index) {
       var yPosition = 0.3 + index * 0.05
+      var valueText =
+        product.quantity + 'x    ' + product.name + '    R$ ' + product.price
+
       addChildElement(checkoutProductsContainer, 'a-text', {
         color: 'black',
         position: '-0.9 ' + yPosition + ' 0.04',
-        value:
-          product.quantity + 'x    ' + product.name + '    R$ ' + product.price,
-        width: '1'
+        value: valueText,
+        width: '1',
+        shader: 'flat'
       })
     })
   },
@@ -74,35 +78,40 @@ AFRAME.registerComponent('checkout', {
       color: '#7300e6',
       height: '1',
       width: '1',
-      position: '0.465 0 0.02'
+      position: '0.465 0 0.02',
+      shader: 'flat'
     })
 
     addChildElement(totalValuePanel, 'a-text', {
       color: '#eeeeee',
       width: '1.5',
       position: '-0.42 0.3 0.02',
-      value: 'Valor Total'
+      value: 'Valor Total',
+      shader: 'flat'
     })
 
     addChildElement(totalValuePanel, 'a-text', {
       color: 'white',
       width: '2',
       position: '-0.42 0.2 0.02',
-      value: 'R$ ' + Number(totalValue).toFixed(2)
+      value: 'R$ ' + Number(totalValue).toFixed(2),
+      shader: 'flat'
     })
 
     var buyButton = addChildElement(totalValuePanel, 'a-plane', {
       color: 'white',
       height: '0.2',
       width: '0.9',
-      position: '-0.008 -0.355 0.02'
+      position: '-0.008 -0.355 0.02',
+      shader: 'flat'
     })
 
     addChildElement(buyButton, 'a-text', {
       color: '#7300e6',
       width: '1',
       position: '-0.16 0 0.02',
-      value: 'Finalizar Compra'
+      value: 'Finalizar Compra',
+      shader: 'flat'
     })
   },
   openCheckoutPanel: function () {
