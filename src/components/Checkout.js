@@ -15,14 +15,7 @@ AFRAME.registerComponent('checkout', {
     document.addEventListener('keydown', function (e) {
       if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) return
       if (e.keyCode === 67) {
-        var checkoutPanel = document.querySelector('#checkout')
-        var inventory = document.querySelector('#inventory')
-
-        componentReference.createProductItems()
-        componentReference.createTotalValuePanel()
-
-        checkoutPanel.object3D.visible = !checkoutPanel.object3D.visible
-        inventory.object3D.visible = !inventory.object3D.visible
+        componentReference.openCheckoutPanel()
       }
     })
   },
@@ -111,5 +104,15 @@ AFRAME.registerComponent('checkout', {
       position: '-0.16 0 0.02',
       value: 'Finalizar Compra'
     })
+  },
+  openCheckoutPanel: function () {
+    var checkoutPanel = document.querySelector('#checkout')
+    var inventory = document.querySelector('#inventory')
+
+    this.createProductItems()
+    this.createTotalValuePanel()
+
+    checkoutPanel.object3D.visible = !checkoutPanel.object3D.visible
+    inventory.object3D.visible = !inventory.object3D.visible
   }
 })
