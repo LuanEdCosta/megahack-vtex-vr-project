@@ -58,7 +58,7 @@
         id="camera"
         look-controls="pointerLockEnabled: true"
         wasd-controls="acceleration:100"
-        position="0 2 7"
+        position="0 2 2"
         camera
       >
         <a-cursor color="red">
@@ -176,6 +176,18 @@
         light="type: directional; color: #ffffff; intensity: 0.5"
         position="0 0 2"
       ></a-entity>
+
+      <a-entity
+        id="spot01"
+        light="type: spot; color: #ADFF2F; angle: 30; decay: 0.1; distance: 2.5 penumbra: 0.3; target: #directionaltarget; intensity: 1"
+        position="0 3 2"
+      ></a-entity>
+
+      <a-entity 
+        id="directionaltarget" 
+        position="0 0 0.5"
+      ></a-entity>
+
     </a-scene>
 
     <script src="src/helpers/IsObject.js"></script>
