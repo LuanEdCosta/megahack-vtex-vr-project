@@ -35,4 +35,14 @@ function onRunCommand(command) {
       }
     }
   }
+
+  if (action === 'CHECKOUT') {
+    var checkoutPanel = document.querySelector('#checkout')
+    localStorage.clear()
+    checkoutPanel.object3D.visible = false
+  }
+
+  if (action === 'SHOW_CART') {
+    document.querySelector('[checkout]').components.checkout.openCheckoutPanel()
+  }
 }
