@@ -20,17 +20,8 @@ function renderProducts(productsObject) {
       )
 
       addChildElement(productContainer, 'a-entity', {
-        scale: '0.4 0.4 0.4',
-        animation: {
-          property: 'rotation',
-          to: '0 360 0',
-          dir: 'alternate',
-          dur: '5000',
-          loop: 'true',
-          easing: 'linear'
-        },
+        scale: product.scale,
         'gltf-model': product['gltf_model'],
-        'pause-on-hover': null,
         'show-element-on-hover': 'element: #' + prodId + ' a-plane'
       })
     })
