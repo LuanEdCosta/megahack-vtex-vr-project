@@ -1,5 +1,3 @@
-// recognition.stop() Stop recording audio
-
 AFRAME.registerComponent('speech-recognition', {
   init: function () {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
@@ -10,11 +8,6 @@ AFRAME.registerComponent('speech-recognition', {
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
     recognition.continuous = true
     recognition.start()
-    setInterval(function () {
-      try {
-        recognition.start()
-      } catch (e) {}
-    }, 3000)
 
     var speechRecognitionList = new SpeechGrammarList()
     speechRecognitionList.addFromString(grammar, 1)
@@ -29,8 +22,8 @@ AFRAME.registerComponent('speech-recognition', {
       onRunCommand(command)
     }
 
-    recognition.onerror = function (event) {
-      throw new Error('Error in Spech Recognition')
+    recognition.onend = function () {
+      recognition.start()
     }
   }
 })
