@@ -37,29 +37,62 @@ function identifyActionFromCommand(command) {
     'apagar'
   ]
 
-  var isToViewProductDetails = false
+  var endList = [
+    'encerra',
+    'encerrar',
+    'finaliza',
+    'finalizar',
+    'termina',
+    'terminar',
+    'fecha',
+    'fechar',
+  ]
+
+  var cartList = [
+    'carrinho',
+  ]
+
   viewList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       isToViewProductDetails = true
+      console.log('SHOW_PRODUCT_DETAILS');
+      return 'SHOW_PRODUCT_DETAILS'
     }
   })
-  if (isToViewProductDetails) return 'SHOW_PRODUCT_DETAILS'
 
-  var isToAddToChart = false
   addList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       isToAddToChart = true
+      console.log('ADD_TO_CHART');
+      return 'ADD_TO_CHART';
     }
   })
-  if (isToAddToChart) return 'ADD_TO_CHART'
 
-  var isToRemoveFromChart = false
   removeList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       isToRemoveFromChart = true
+      console.log('REMOVE_FROM_CHART');
+      return 'REMOVE_FROM_CHART'
     }
   })
-  if (isToRemoveFromChart) return 'REMOVE_FROM_CHART'
+
+  var isToEnd = false
+  endList.forEach(function (word) {
+    if (lowerCaseCommand.indexOf(word) !== -1) {
+      isToEnd = true
+      console.log('CHECKOUT');
+      return 'CHECKOUT'
+    }
+  })
+
+  var showCart = false
+  cartList.forEach(function (word) {
+    if (lowerCaseCommand.indexOf(word) !== -1) {
+      showCart = true
+      console.log('SHOW_CART');
+      return 'SHOW_CART'
+    }
+  })
 
   return null
 }
