@@ -17,7 +17,7 @@
     <script src="src/components/Checkout.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene light="defaultLightsEnabled: false">
       <a-assets>
         <img
           id="groundTexture"
@@ -37,8 +37,13 @@
         ></a-asset-item>
 
         <a-asset-item
+          id="tennisThumb"
+          src="src/assets/objects/TennisThumbnail/Tennis.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
           id="store"
-          src="src/assets/objects/Store.gltf"
+          src="src/assets/objects/Store/Store.gltf"
         ></a-asset-item>
       </a-assets>
 
@@ -53,7 +58,7 @@
         id="camera"
         look-controls="pointerLockEnabled: true"
         wasd-controls="acceleration:100"
-        position="0 2 4"
+        position="0 2 7"
         camera
       >
         <a-cursor color="red">
@@ -83,7 +88,93 @@
       <a-entity
         gltf-model="#store"
         position="0 0.2 -3"
-        scale="0.01 0.01 0.01"
+        scale="0.002 0.002 0.002"
+      ></a-entity>
+
+      <a-box
+        id="refPosTenis1"
+        position="-0.8 1.92 -0.2"
+        rotation="0 -30 0"
+        color="#4CC3D9"
+        width="0.15"
+        height="0.15"
+        depth="0.29"
+      ></a-box>
+
+      <a-box
+        id="refPosTenis2"
+        position="-0.2 1.92 0"
+        rotation="0 90 0"
+        color="#4CC3D9"
+        width="0.15"
+        height="0.15"
+        depth="0.29"
+      ></a-box>
+
+      <a-box
+        id="refPosTenis3"
+        position="0.3 1.92 -0.2"
+        rotation="0 30 0"
+        color="#4CC3D9"
+        width="0.15"
+        height="0.15"
+        depth="0.29"
+      ></a-box>
+
+      <a-box
+        id="refPosTenis4"
+        position="-1.2 1.92 -0.6"
+        rotation="0 -60 0"
+        color="#4CC3D9"
+        width="0.15"
+        height="0.15"
+        depth="0.29"
+      ></a-box>
+
+      <a-box
+        id="refPosTenis5"
+        position="0.7 1.92 -0.6"
+        rotation="0 60 0"
+        color="#4CC3D9"
+        width="0.15"
+        height="0.15"
+        depth="0.29"
+      ></a-box>
+
+      <a-entity
+        id="Ambient01"
+        light="type: directional; color: #fffff0; intensity: 0.5"
+        position="-1 1 -0.3"
+      ></a-entity>
+
+      <a-entity
+        id="Ambient02"
+        light="type: directional; color: #ffffff; intensity: 0.3"
+        position="1 1 -0.3"
+      ></a-entity>
+
+      <a-entity
+        id="rebatimentoChao"
+        light="type: directional; color: #ffffff; intensity: 1"
+        position="0 -1 -0.3"
+      ></a-entity>
+
+      <a-entity
+        id="mainAmarela"
+        light="type: point; color: #dddddd; intensity: 0.6"
+        position="8 10 -2"
+      ></a-entity>
+
+      <a-entity
+        id="mainVerde"
+        light="type: point; color: #eeeeee; intensity: 0.6"
+        position="-8 10 2"
+      ></a-entity>
+
+      <a-entity
+        id="mainVerde"
+        light="type: directional; color: #ffffff; intensity: 0.5"
+        position="0 0 2"
       ></a-entity>
     </a-scene>
 

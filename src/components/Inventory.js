@@ -20,13 +20,16 @@ AFRAME.registerComponent('inventory', {
         (e.keyCode >= 48 && e.keyCode <= 57) ||
         (e.keyCode >= 96 && e.keyCode <= 105)
 
-      if (isNumberKey) componentReference.selectSlot(Number(e.key))
+      if (isNumberKey) {
+        var slotNumber = Number(e.key)
+        componentReference.selectSlot(slotNumber - 1)
+      }
     })
 
     document.addEventListener('keydown', function (e) {
       if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) return
       if (e.keyCode === 82) {
-        removeProductFromChart(componentReference.selectedSlot - 1)
+        removeProductFromChart(componentReference.selectedSlot)
         componentReference.updateInventory()
       }
     })
@@ -41,7 +44,7 @@ AFRAME.registerComponent('inventory', {
       if (e.keyCode === 109) componentReference.changeQuantity(false)
     })
 
-    this.selectSlot(1)
+    this.selectSlot(0)
     this.updateInventory()
   },
   updateInventory: function () {
@@ -64,7 +67,7 @@ AFRAME.registerComponent('inventory', {
           scale: '0.025 0.025 0.025',
           rotation: '0 180 0',
           position: '0.007 0.01 0.02',
-          'gltf-model': product['gltf-model']
+          'gltf-model': '#tennisThumb'
         })
 
         var quantityContainer = addChildElement(
@@ -90,7 +93,9 @@ AFRAME.registerComponent('inventory', {
     })
   },
   selectSlot(slotIndex) {
-    if (slotIndex) {
+    if (!this.isInventoryVisible()) return
+
+    if ((slotIndex && slotIndex !== -1) || slotIndex === 0) {
       this.selectedSlot = slotIndex
       var inventorySlots = document.querySelectorAll('#inventory a-plane')
 
@@ -98,18 +103,19 @@ AFRAME.registerComponent('inventory', {
         inventorySlot.setAttribute('color', 'black')
       })
 
-      var inventorySlot = inventorySlots[slotIndex - 1]
+      var inventorySlot = inventorySlots[slotIndex]
       inventorySlot.setAttribute('color', '#7300e6')
     }
   },
   changeQuantity: function (isToIncrement) {
+    if (!this.isInventoryVisible()) return
+
     var inventorySlots = document.querySelectorAll('#inventory a-plane')
     var chart = localStorage.getItem('CHART')
     chart = chart ? JSON.parse(chart) : []
-    var chartIndex = this.selectedSlot - 1
 
-    var selectedProduct = chart[chartIndex]
-    var inventorySlot = inventorySlots[chartIndex]
+    var selectedProduct = chart[this.selectedSlot]
+    var inventorySlot = inventorySlots[this.selectedSlot]
 
     if (
       selectedProduct &&
@@ -127,9 +133,12 @@ AFRAME.registerComponent('inventory', {
         selectedProduct.quantity > 9 ? '-0.65 0 0' : '-0.4 0 0'
       )
 
-      chart[chartIndex] = selectedProduct
+      chart[this.selectedSlot] = selectedProduct
     }
 
     localStorage.setItem('CHART', JSON.stringify(chart))
+  },
+  isInventoryVisible: function () {
+    return this.el.object3D.visible
   }
 })

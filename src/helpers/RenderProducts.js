@@ -21,9 +21,7 @@ function renderProducts(productsObject) {
 
       addChildElement(productContainer, 'a-entity', {
         scale: product.scale,
-        animation: product.animation,
-        'gltf-model': product['gltf-model'],
-        'pause-on-hover': null,
+        'gltf-model': product['gltf_model'],
         'show-element-on-hover': 'element: #' + prodId + ' a-plane'
       })
     })

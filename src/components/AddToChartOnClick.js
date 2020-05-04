@@ -17,7 +17,15 @@ AFRAME.registerComponent('add-to-chart-on-click', {
       var isAClickInAHiddenElement =
         isOriginatedFromATrueClick && !productInfoElement.object3D.visible
 
-      if (products && productId && !isAClickInAHiddenElement) {
+      var checkoutElement = document.querySelector('#checkout')
+      var isCheckoutVisible = checkoutElement.object3D.visible
+
+      if (
+        products &&
+        productId &&
+        !isAClickInAHiddenElement &&
+        !isCheckoutVisible
+      ) {
         var newProduct = products[productId]
         newProduct.quantity = 1
 
