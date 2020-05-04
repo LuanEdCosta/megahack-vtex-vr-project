@@ -42,6 +42,8 @@ function onRunCommand(command) {
     checkoutPanel.object3D.visible = false
   }
 
+  console.log(command)
+
   if (action === 'SHOW_CART') {
     document.querySelector('[checkout]').components.checkout.openCheckoutPanel()
   }

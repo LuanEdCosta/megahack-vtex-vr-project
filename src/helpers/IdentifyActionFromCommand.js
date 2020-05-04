@@ -1,5 +1,6 @@
 function identifyActionFromCommand(command) {
   var lowerCaseCommand = command.toLowerCase()
+  var action = null
 
   var viewList = [
     'mostra',
@@ -52,22 +53,21 @@ function identifyActionFromCommand(command) {
 
   viewList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
-      isToViewProductDetails = true
-      return 'SHOW_PRODUCT_DETAILS'
+      action = 'SHOW_PRODUCT_DETAILS'
     }
   })
 
   addList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       isToAddToChart = true
-      return 'ADD_TO_CHART'
+      action = 'ADD_TO_CHART'
     }
   })
 
   removeList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       isToRemoveFromChart = true
-      return 'REMOVE_FROM_CHART'
+      action = 'REMOVE_FROM_CHART'
     }
   })
 
@@ -75,7 +75,7 @@ function identifyActionFromCommand(command) {
   endList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       isToEnd = true
-      return 'CHECKOUT'
+      action = 'CHECKOUT'
     }
   })
 
@@ -83,9 +83,9 @@ function identifyActionFromCommand(command) {
   cartList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
       showCart = true
-      return 'SHOW_CART'
+      action = 'SHOW_CART'
     }
   })
 
-  return null
+  return action
 }
