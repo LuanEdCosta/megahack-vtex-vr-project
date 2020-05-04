@@ -64,7 +64,7 @@ AFRAME.registerComponent('checkout', {
     var totalValue = 0
     chart.forEach(function (product) {
       try {
-        totalValue += Number(product.price)
+        totalValue += Number(product.quantity) * Number(product.price)
       } catch (e) {
         totalValue += 0
       }

@@ -59,30 +59,24 @@ function identifyActionFromCommand(command) {
 
   addList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
-      isToAddToChart = true
       action = 'ADD_TO_CHART'
     }
   })
 
   removeList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
-      isToRemoveFromChart = true
       action = 'REMOVE_FROM_CHART'
     }
   })
 
-  var isToEnd = false
   endList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
-      isToEnd = true
       action = 'CHECKOUT'
     }
   })
 
-  var showCart = false
   cartList.forEach(function (word) {
     if (lowerCaseCommand.indexOf(word) !== -1) {
-      showCart = true
       action = 'SHOW_CART'
     }
   })

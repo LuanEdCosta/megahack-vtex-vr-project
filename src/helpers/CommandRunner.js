@@ -37,9 +37,18 @@ function onRunCommand(command) {
   }
 
   if (action === 'CHECKOUT') {
+    localStorage.removeItem('CHART')
     var checkoutPanel = document.querySelector('#checkout')
-    localStorage.clear()
-    checkoutPanel.object3D.visible = false
+    if (checkoutPanel.object3D.visible) {
+      document
+        .querySelector('[checkout]')
+        .components.checkout.openCheckoutPanel()
+
+      document
+        .querySelector('#inventory')
+        .components.inventory.updateInventory()
+    }
+    w
   }
 
   if (action === 'SHOW_CART') {
