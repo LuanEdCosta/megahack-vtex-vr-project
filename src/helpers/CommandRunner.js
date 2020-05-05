@@ -48,7 +48,6 @@ function onRunCommand(command) {
         .querySelector('#inventory')
         .components.inventory.updateInventory()
     }
-    w
   }
 
   if (action === 'SHOW_CART') {
